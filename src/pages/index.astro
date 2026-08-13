@@ -22,7 +22,7 @@ const projects = (await getCollection('projects')).sort((a, b) =>
     {projects.map((project) => (
       <a class="sheet" href={`/work/${project.id}/`}>
         {project.data.image && (
-          <div class="sheet-img"><img src={project.data.image} alt={project.data.title} loading="lazy" /></div>
+          <div class="sheet-bg"><img src={project.data.image} alt="" /></div>
         )}
         <div class="idx">{project.data.sheet}</div>
         <h3>{project.data.title}</h3>
@@ -38,7 +38,7 @@ const projects = (await getCollection('projects')).sort((a, b) =>
     <div class="label">About</div>
     <div>
       <p>A researcher and designer working at the intersection of sustainable material systems, computational design, and digital fabrication.</p>
-      <p>MSc candidate at the TAD (Transdisciplinary Architectural Design) Lab, University of Seoul, following a Bachelor of Architecture from the same institution. Background includes three years as a construction supervisor (Lieutenant, Defense Installations Agency) and international workshops through the Holcim Foundation and ACAU.</p>
+      <p>MSc at the TAD (Transdisciplinary Architectural Design) Lab, University of Seoul, following a Bachelor of Architecture from the same institution. Background includes three years as a construction supervisor (Lieutenant, Defense Installations Agency). Currently a student at ITECH (Integrative Technologies &amp; Architectural Design Research), University of Stuttgart.</p>
     </div>
   </section>
 </BaseLayout>
