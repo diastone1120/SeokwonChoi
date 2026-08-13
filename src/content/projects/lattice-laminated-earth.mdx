@@ -6,6 +6,8 @@ tags: ["Earth", "FGF printing", "Lattice core"]
 image: "/images/01-lattice-photo.jpg"
 credit: "Master's Thesis · 14th ISAIA 2024, Kyoto · Advisor: Prof. Jungwon Yoon"
 ---
+import FigureCard from '../../components/FigureCard.astro';
+import PhotoBlock from '../../components/PhotoBlock.astro';
 
 ## Context
 
@@ -14,21 +16,59 @@ materials like cement carry a heavy footprint. This project asks whether an anci
 material — earth — can be reintroduced through digital fabrication as a genuinely
 low-carbon structural option.
 
+<FigureCard src="/images/issue-stats.jpg" num="01" caption="Carbon emissions by industry sector, and the case for alternative materials" />
+
 ## Material system
 
 A lattice core is 3D-printed using FGF (Fused Granular Fabrication) from bio-based
 feedstocks, then laminated with an earth-and-lime mixture reinforced with natural
-fibers. Multiple fiber types were tested — coconut fiber, kenaf, rice husk, rice husk
-charcoal, agar, seaweed furcata, and wheat straw — each evaluated for cost, environmental
-impact, and resource availability.
+fibers.
+
+<FigureCard src="/images/diagram-overall.jpg" num="02" caption="Element / material layer diagram" />
+
+<FigureCard src="/images/diagram-composition.jpg" num="03" caption="Lattice core composition & mixture formulation" />
 
 ## Process
 
 Seashell waste is calcined into quicklime, hydrated into slaked lime, then combined
-with earth to form the laminating mixture. The lattice geometry itself is explored
-through both direct printing and non-planar toolpaths with robotic move control,
-allowing the printed core to follow curved, load-adapted geometries rather than flat
-layers.
+with earth to form the laminating mixture. Multiple fiber types were tested —
+coconut fiber, kenaf, rice husk, rice husk charcoal, agar, seaweed furcata, and wheat
+straw — each evaluated for cost, environmental impact, and resource availability.
+
+<FigureCard src="/images/workflow.jpg" num="04" caption="Overall research and fabrication workflow" />
+
+## Two fabrication approaches
+
+The lattice geometry was explored through two distinct methods — one built as a
+single continuous structure, the other as combinable tiled units.
+
+<div class="method-block">
+
+### Structural method
+
+Printed as a single curved form directly on a net-reinforced base layer using
+non-planar toolpaths, then assembled from five units into a 1800mm arch —
+accounting for joint vulnerability and gravity-induced deflection.
+
+<FigureCard src="/images/structural-method.jpg" num="05" caption="Structural method: print path & assembly" />
+
+<PhotoBlock src="/images/structural-buildup.jpg" caption="Built prototype — printing, assembly & hardening of the structural arch" />
+
+</div>
+
+<div class="method-block">
+
+### Segmentation method
+
+Designed as saddle-shaped, non-planar tiles with combinable curvature, modifiable
+to different forms by changing the base-bed — allowing use as a discrete
+architectural cladding or panel system rather than a single continuous structure.
+
+<FigureCard src="/images/segmentation-method.jpg" num="06" caption="Segmentation method: tile unit & print path" />
+
+<PhotoBlock src="/images/segmentation-buildup.jpg" caption="Tile unit printing, natural-fiber material samples, and finished results" />
+
+</div>
 
 ## Outcomes
 

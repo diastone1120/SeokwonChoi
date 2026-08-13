@@ -1,0 +1,11 @@
+---
+interface Props {
+  src: string;
+  caption?: string;
+}
+const { src, caption } = Astro.props;
+---
+<div class="photo-block">
+  <img src={src} alt={caption ?? ''} loading="lazy" />
+</div>
+{caption && <div class="photo-caption">{caption}</div>}

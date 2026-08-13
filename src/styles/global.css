@@ -212,8 +212,41 @@ footer a{text-decoration:underline; text-underline-offset:3px; color:var(--bone)
   margin:40px 0 14px;
   color:var(--moss);
 }
+.project-body h3{
+  font-family:'Space Grotesk', sans-serif;
+  font-weight:500;
+  font-size:17px;
+  margin:36px 0 10px;
+  color:var(--bone);
+}
 .project-body p{margin-bottom:16px; color:var(--bone);}
 .project-body ul{margin:0 0 16px 20px; color:var(--bone);}
+
+/* FIGURE CARD — for light-background diagrams/illustrations */
+.figure-card{
+  background:var(--bone);
+  border:0.5px solid var(--grid-line-strong);
+  padding:18px 18px 14px;
+  margin:22px 0;
+}
+.figure-card img{width:100%; display:block;}
+.figure-caption{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:10.5px; letter-spacing:0.03em; text-transform:uppercase;
+  color:var(--ink); opacity:0.6; margin-top:10px;
+}
+.figure-caption b{color:var(--rust); opacity:1;}
+
+/* PHOTO BLOCK — for real photography, shown directly on the dark background */
+.photo-block{margin:22px 0 4px; border:0.5px solid var(--grid-line-strong);}
+.photo-block img{width:100%; display:block;}
+.photo-caption{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:10.5px; color:var(--bone-dim);
+  margin:8px 0 22px; text-transform:uppercase; letter-spacing:0.03em;
+}
+
+.method-block{border-left:1px solid var(--grid-line-strong); padding-left:20px; margin:24px 0 40px;}
 
 @media (max-width:640px){
   .about{grid-template-columns:1fr;}
