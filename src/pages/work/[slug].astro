@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CATEGORY_LABELS } from '../../lib/tags';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -15,11 +16,15 @@ interface Props {
 }
 const { project } = Astro.props;
 const { Content } = await render(project);
+const categoryLabel = CATEGORY_LABELS[project.data.category];
+const categorySlug = project.data.category;
 ---
 <BaseLayout title={`${project.data.title} — Seokwon Choi`}>
   <article class="project-detail">
     <div class="wrap">
       <a class="back-link" href="/#work">&larr; Back to work</a>
+      <span class="breadcrumb-sep">/</span>
+      <a class="back-link" href={`/#${categorySlug}`}>{categoryLabel}</a>
       <div class="idx" style="margin-top:32px;">{project.data.sheet}</div>
       <h1>{project.data.title}</h1>
       {project.data.credit && <p class="credit">{project.data.credit}</p>}

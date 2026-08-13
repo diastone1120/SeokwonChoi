@@ -2,9 +2,18 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const projects = (await getCollection('projects')).sort((a, b) =>
+const all = (await getCollection('projects')).sort((a, b) =>
   a.data.sheet.localeCompare(b.data.sheet)
 );
+const research = all.filter((p) => p.data.category === 'research');
+const design = all.filter((p) => p.data.category === 'design');
+const field = all.filter((p) => p.data.category === 'field');
+
+const sections = [
+  { label: 'Research', id: 'research', items: research },
+  { label: 'Design', id: 'design', items: design },
+  { label: 'Field & Workshop', id: 'field', items: field },
+];
 ---
 <BaseLayout>
   <section class="hero">
@@ -17,21 +26,27 @@ const projects = (await getCollection('projects')).sort((a, b) =>
     <span class="coord-corner br">X 0 — Y 0<br>ORIGIN</span>
   </section>
 
-  <div class="section-label" id="work">Selected work</div>
-  <div class="work-grid">
-    {projects.map((project) => (
-      <a class="sheet" href={`/work/${project.id}/`}>
-        {project.data.image && (
-          <div class="sheet-bg"><img src={project.data.image} alt="" /></div>
-        )}
-        <div class="idx">{project.data.sheet}</div>
-        <h3>{project.data.title}</h3>
-        <p>{project.data.summary}</p>
-        <div class="tags">
-          {project.data.tags.map((tag) => <span>{tag}</span>)}
-        </div>
-      </a>
-    ))}
+  <div id="work">
+  {sections.map((section) => section.items.length > 0 && (
+    <>
+      <div class="section-label" id={section.id}>{section.label}</div>
+      <div class="work-grid">
+        {section.items.map((project) => (
+          <a class="sheet" href={`/work/${project.id}/`}>
+            {project.data.image && (
+              <div class="sheet-bg"><img src={project.data.image} alt="" /></div>
+            )}
+            <div class="idx">{project.data.sheet}</div>
+            <h3>{project.data.title}</h3>
+            <p>{project.data.summary}</p>
+            <div class="tags">
+              {project.data.tags.map((tag) => <span>{tag}</span>)}
+            </div>
+          </a>
+        ))}
+      </div>
+    </>
+  ))}
   </div>
 
   <section class="about" id="about">

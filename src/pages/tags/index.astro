@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { slugifyTag } from '../../lib/tags';
+
+const all = await getCollection('projects');
+const tagMap = new Map<string, { label: string; count: number }>();
+all.forEach((p) => {
+  p.data.tags.forEach((t) => {
+    const slug = slugifyTag(t);
+    if (!tagMap.has(slug)) tagMap.set(slug, { label: t, count: 0 });
+    tagMap.get(slug)!.count++;
+  });
+});
+const tags = [...tagMap.entries()].sort((a, b) => b[1].count - a[1].count);
+---
+<BaseLayout title="Tags — Seokwon Choi">
+  <section class="hero" style="padding-bottom:56px;">
+    <span class="coord-corner tl">INDEX / TAGS</span>
+    <span class="tick tl"></span>
+    <span class="tick br"></span>
+    <div class="eyebrow">Browse by material or technique</div>
+    <h1>Tags</h1>
+    <p class="sub">Every project, cross-referenced by material and method.</p>
+  </section>
+
+  <div class="wrap tag-cloud">
+    {tags.map(([slug, { label, count }]) => (
+      <a class="tag-pill" href={`/tags/${slug}/`}>
+        {label} <span class="tag-count">{count}</span>
+      </a>
+    ))}
+  </div>
+</BaseLayout>

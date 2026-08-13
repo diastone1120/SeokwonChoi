@@ -3,26 +3,84 @@ sheet: "02"
 title: "Seagrass Habitat Restoration"
 summary: "3D-scanned tetrapod prosthesis units, FGF-printed in seaweed bioplastic on a 6-axis robot arm, to support coastal seagrass regrowth."
 tags: ["FGF printing", "Bioplastic", "Marine ecology"]
+category: "research"
 image: "/images/02-seagrass-photo.jpg"
 credit: "DigitalFUTURES 2024, Shanghai · with Yousub Bang, Prof. Jungwon Yoon"
 ---
+import FigureCard from '../../components/FigureCard.astro';
+import PhotoBlock from '../../components/PhotoBlock.astro';
 
 ## Context
 
-Seagrass meadows are fragile coastal ecosystems that stabilize seabeds and support
-marine biodiversity. Tetrapod units are commonly used to anchor and protect areas
-undergoing restoration — this project reimagines them as a digitally fabricated,
-bio-based prosthesis rather than plain concrete.
+Advanced 3D printing and 3D scanning can meaningfully contribute to restoring
+coastal ecosystems damaged by human activity and climate change. Surrounded by sea
+on three sides, Korea's coastline has been degraded by landfill, coastal
+construction, and eutrophication — leading to bleaching and the decline of rocky
+ecosystems. Seagrass beds, among the highest-productivity zones in any marine
+ecosystem, are a critical habitat and breeding ground worth protecting.
 
-## Method
+<FigureCard src="/images/issue.jpg" num="01" tone="marine" caption="Coastal ecosystem degradation and the role of 3D printing / 3D scanning in restoration" />
 
-Target seabed surfaces were 3D-scanned and translated into printable geometry through
-three fabrication methods, ranging from simple planar stacking to fully non-planar,
-robotically controlled direct printing with infinite stacking. Seaweed-derived
-bioplastic (PBAT/PLA compounds) was extruded through a pellet extruder mounted on an
-ABB IRB1200 six-axis robot arm.
+<PhotoBlock src="/images/context-photos.jpg" caption="Tetrapods on the Korean coast · seaweed waste collection · a prosthesis unit installed in the field" />
 
-## Outcome
+## Digital setup
+
+Target tetrapod surfaces were captured via photogrammetry (Luma, Polycam) and
+converted to mesh geometry in Rhino/Grasshopper. Toolpaths were generated and
+simulated for an ABB IRB1200 six-axis robot fitted with a pellet extruder and
+heated bed, printing a compound of seaweed waste, PBAT, and PLA into a
+biodegradable bioplastic filament.
+
+<FigureCard src="/images/digital-setup.jpg" num="02" tone="marine" caption="Digital setup — scan-to-print pipeline, robot configuration, and seaweed-bioplastic compound" />
+
+## Three design methods
+
+Three distinct approaches were tested for attaching a printed prosthesis to a
+tetrapod's curved surface.
+
+### Method 1 — Porosity design
+
+Focused on maximizing porosity within the maximum allowable print thickness.
+Kangaroo 2's sphere-collide simulation and a "stepslover" script were used to
+generate the porous pattern, which was printed flat (planar) and then bent and
+wrapped around the tetrapod surface by hand while still hot.
+
+<FigureCard src="/images/method1.jpg" num="03" tone="marine" caption="Method 1 — porosity simulation and bending/wrapping fabrication" />
+
+### Method 2 — Direct surface printing
+
+Printed non-planar, directly onto the target surface using a simple net-like mesh
+design, stacked a minimum of three layers to create voids between layers. Plane
+alignment and tilting were adjusted along the toolpath to keep the print viable on
+an irregular surface.
+
+<FigureCard src="/images/method2.jpg" num="04" tone="marine" caption="Method 2 — direct non-planar printing with plane adjustment" />
+
+### Method 3 — Layered shelter
+
+Used the 'Anemone' looping technique in Grasshopper to slice stacked layers based
+on offset values from the surface, with lower layers maximizing attachment area
+before simplifying upward — creating an enclosed sanctuary for seagrass roots.
+
+<FigureCard src="/images/method3.jpg" num="05" tone="marine" caption="Method 3 — offset-based layering to form a root sanctuary" />
+
+## Conclusion
+
+Each method suits a different habitat condition. Method 3 was judged the optimal
+seagrass habitat against wave action, while Method 2 could be produced with the
+least material. Methods 2 and 3, along with their fabrication logic, were
+individually developed by Choi within the collaborative research.
+
+<FigureCard src="/images/conclusion.jpg" num="06" tone="marine" caption="Comparison of the three methods across design, printing, and attachment" />
+
+## In the field
+
+A Method 3 prosthesis was installed on a tetrapod in Tongyeong, Korea, and observed
+for seagrass growth and structural stability under real coastal conditions.
+
+<PhotoBlock src="/images/tongyeong.jpg" caption="Method 3 prosthesis installed on a tetrapod, Tongyeong" />
+
+## Outcomes
 
 Presented at DigitalFUTURES 2024 in Shanghai as the second-authored paper, "Enhancing
 Seagrass Habitat Restoration: 3D Scanning and FGF for Tetrapod Prosthesis."

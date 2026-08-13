@@ -7,6 +7,7 @@
   --bone-dim:#B8B0A0;
   --rust:#B5642F;
   --moss:#7C8B57;
+  --sea:#94A9A6; /* desaturated ocean/seagrass tone for marine-themed figure cards */
   --grid-line:rgba(237,231,218,0.09);
   --grid-line-strong:rgba(237,231,218,0.18);
 }
@@ -229,6 +230,7 @@ footer a{text-decoration:underline; text-underline-offset:3px; color:var(--bone)
   padding:18px 18px 14px;
   margin:22px 0;
 }
+.figure-card.tone-marine{background:var(--sea);}
 .figure-card img{width:100%; display:block;}
 .figure-caption{
   font-family:'IBM Plex Mono', monospace;
@@ -247,6 +249,53 @@ footer a{text-decoration:underline; text-underline-offset:3px; color:var(--bone)
 }
 
 .method-block{border-left:1px solid var(--grid-line-strong); padding-left:20px; margin:24px 0 40px;}
+
+/* ---- expandable sub-item accordion (Fabrication Studies, Material Research) ---- */
+.spec-item{border:0.5px solid var(--grid-line-strong); margin:14px 0; padding:0;}
+.spec-item summary{
+  list-style:none; cursor:pointer;
+  padding:16px 20px; display:flex; align-items:center; gap:12px;
+  font-family:'Space Grotesk', sans-serif; font-weight:500; font-size:16px; color:var(--bone);
+}
+.spec-item summary::-webkit-details-marker{display:none;}
+.spec-item summary::before{
+  content:'+'; color:var(--rust); font-family:'IBM Plex Mono',monospace; font-size:16px; width:14px;
+}
+.spec-item[open] summary::before{content:'–';}
+.spec-item summary .spec-credit{
+  font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--bone-dim);
+  text-transform:uppercase; letter-spacing:.03em; margin-left:auto;
+}
+.spec-item .spec-body{padding:0 20px 20px 46px; font-size:15px; color:var(--bone-dim);}
+
+.breadcrumb-sep{color:var(--bone-dim); opacity:.4; margin:0 4px; font-family:'IBM Plex Mono',monospace; font-size:12px;}
+.breadcrumb-link{font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--rust); text-decoration:none;}
+
+/* ---- tag index ---- */
+.tag-cloud{display:flex; flex-wrap:wrap; gap:10px; padding-bottom:80px;}
+.tag-pill{
+  font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:.03em;
+  color:var(--moss); border:0.5px solid var(--grid-line-strong); padding:8px 14px;
+  text-decoration:none; transition:background .15s, color .15s;
+}
+.tag-pill:hover{background:var(--ink-2); color:var(--bone);}
+.tag-count{color:var(--bone-dim); opacity:.6; margin-left:4px;}
+
+/* ---- publications ---- */
+.pub-list{border-top:0.5px solid var(--grid-line-strong);}
+.pub-item{
+  display:grid; grid-template-columns:70px 1fr; gap:20px;
+  padding:22px 0; border-bottom:0.5px solid var(--grid-line-strong);
+}
+.pub-year{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--rust);}
+.pub-title{font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:18px; color:var(--bone); margin-bottom:6px;}
+.pub-venue{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--bone-dim); margin-bottom:10px;}
+.pub-item-compact{padding:16px 0;}
+.pub-item-compact .pub-venue{margin-bottom:0;}
+
+@media (max-width:640px){
+  .pub-item{grid-template-columns:50px 1fr;}
+}
 
 @media (max-width:640px){
   .about{grid-template-columns:1fr;}

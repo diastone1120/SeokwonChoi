@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const publications = [
+  {
+    year: '2024',
+    title: 'Lattice Laminated Earth: A Study on the Fabrication Technique of Laminated Earth in 3D-Printed Lattice Core',
+    venue: "Master's Thesis, University of Seoul",
+    role: null,
+    tags: ['3DP (FGF)', 'Earth', 'Lime', 'Natural fiber'],
+  },
+  {
+    year: '2024',
+    title: 'Bio-Waste Wall: Advancing Sustainable Construction with Bio-Based Materials and Manufacturing',
+    venue: '14th ISAIA 2024, Kyoto',
+    role: '1st author',
+    tags: ['Thin-shell', '3DP', 'Lime', 'Seaweed'],
+  },
+  {
+    year: '2024',
+    title: 'Architectural Production Using 3D Printing with Algae-Bioplastic Compounds',
+    venue: 'JAIK',
+    role: '1st author',
+    tags: ['3DP', 'Seaweed', 'Bioplastic', 'Robot arm'],
+  },
+  {
+    year: '2024',
+    title: 'Enhancing Seagrass Habitat Restoration: 3D Scanning and FGF for Tetrapod Prosthesis',
+    venue: 'DigitalFUTURES 2024, Shanghai',
+    role: '2nd author',
+    tags: ['3DP', 'Tetrapod', 'Seagrass'],
+  },
+  {
+    year: '2023',
+    title: 'A Study on the Architectural Prototyping of Seaweed Plastic Compound by FGF',
+    venue: 'Autumn Conference of AIK 2023, Jeongseon',
+    role: '1st author',
+    tags: ['3DP', 'FGF', 'Biodegradable'],
+  },
+  {
+    year: '2020',
+    title: 'Digital Design and Additive Manufacturing of SMP Prototypes',
+    venue: 'CAADRIA 2020, Bangkok',
+    role: '2nd author',
+    tags: ['3DP', 'FGF', 'Biodegradable'],
+  },
+  {
+    year: '2018',
+    title: 'A Study of the Influence of 3D Printing Infill Densities on SMP Shape Recovery Behaviors',
+    venue: 'Autumn Conference of AIK 2018, Pyeongchang',
+    role: '2nd author',
+    tags: ['SMP', '3DP', 'Recovery'],
+  },
+].sort((a, b) => b.year.localeCompare(a.year));
+
+const conferences = [
+  { year: '2024', name: '14th ISAIA 2024 Conference', place: 'Kyoto, Japan' },
+  { year: '2024', name: 'Clinic of Care in Indonesia: Adaptive Reuse', place: 'Yogyakarta, Indonesia · Holcim Foundation' },
+  { year: '2024', name: 'DigitalFUTURES 2024', place: 'Shanghai, China' },
+  { year: '2023', name: 'Gwangju Folly 5', place: 'Gwangju, Korea' },
+  { year: '2023', name: 'Autumn Conference of AIK 2023', place: 'Jeongseon, Korea' },
+  { year: '2023', name: 'Nano-Degree Workshop — Robot-Arm Shellfoam Cutting', place: 'Seoul, Korea' },
+  { year: '2023', name: 'Joint Workshop with Syracuse University', place: 'Seoul, Korea' },
+  { year: '2020', name: 'Digital Jam Workshop — Air-Expansion Fabrication', place: 'Seoul, Korea' },
+  { year: '2019', name: 'ACAU — Collective City', place: 'Ho Chi Minh City, Vietnam' },
+  { year: '2018', name: 'Sewoon Builder School — Transparent UHPC Furniture', place: 'Seoul, Korea' },
+  { year: '2018', name: 'Autumn Conference of AIK 2018', place: 'Pyeongchang, Korea' },
+].sort((a, b) => b.year.localeCompare(a.year));
+---
+<BaseLayout title="Publications — Seokwon Choi">
+  <section class="hero" style="padding-bottom:56px;">
+    <span class="coord-corner tl">INDEX / PUBLICATIONS</span>
+    <span class="tick tl"></span>
+    <span class="tick br"></span>
+    <div class="eyebrow">Papers, theses &amp; conference presentations</div>
+    <h1>Publications</h1>
+  </section>
+
+  <div class="wrap">
+    <div class="pub-list">
+      {publications.map((pub) => (
+        <div class="pub-item">
+          <div class="pub-year">{pub.year}</div>
+          <div class="pub-main">
+            <div class="pub-title">{pub.title}</div>
+            <div class="pub-venue">{pub.venue}{pub.role && ` · ${pub.role}`}</div>
+            <div class="tags">
+              {pub.tags.map((t) => <span>{t}</span>)}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="section-label" style="padding-left:0; margin-top:64px;">Conferences &amp; Workshops</div>
+    <div class="pub-list">
+      {conferences.map((c) => (
+        <div class="pub-item pub-item-compact">
+          <div class="pub-year">{c.year}</div>
+          <div class="pub-main">
+            <div class="pub-title" style="font-size:16px;">{c.name}</div>
+            <div class="pub-venue">{c.place}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

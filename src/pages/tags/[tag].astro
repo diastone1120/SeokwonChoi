@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { slugifyTag } from '../../lib/tags';
+
+export async function getStaticPaths() {
+  const all = await getCollection('projects');
+  const tagMap = new Map<string, { label: string; projects: CollectionEntry<'projects'>[] }>();
+  all.forEach((p) => {
+    p.data.tags.forEach((t) => {
+      const slug = slugifyTag(t);
+      if (!tagMap.has(slug)) tagMap.set(slug, { label: t, projects: [] });
+      tagMap.get(slug)!.projects.push(p);
+    });
+  });
+  return [...tagMap.entries()].map(([slug, { label, projects }]) => ({
+    params: { tag: slug },
+    props: { label, projects },
+  }));
+}
+
+interface Props {
+  label: string;
+  projects: CollectionEntry<'projects'>[];
+}
+const { label, projects } = Astro.props;
+---
+<BaseLayout title={`${label} — Tags — Seokwon Choi`}>
+  <section class="hero" style="padding-bottom:40px;">
+    <span class="coord-corner tl">INDEX / TAGS</span>
+    <div class="eyebrow"><a href="/tags/" class="breadcrumb-link">&larr; All tags</a></div>
+    <h1>{label}</h1>
+    <p class="sub">{projects.length} project{projects.length > 1 ? 's' : ''} tagged {label}.</p>
+  </section>
+
+  <div class="work-grid">
+    {projects.map((project) => (
+      <a class="sheet" href={`/work/${project.id}/`}>
+        {project.data.image && (
+          <div class="sheet-bg"><img src={project.data.image} alt="" /></div>
+        )}
+        <div class="idx">{project.data.sheet}</div>
+        <h3>{project.data.title}</h3>
+        <p>{project.data.summary}</p>
+        <div class="tags">
+          {project.data.tags.map((tag) => <span>{tag}</span>)}
+        </div>
+      </a>
+    ))}
+  </div>
+</BaseLayout>

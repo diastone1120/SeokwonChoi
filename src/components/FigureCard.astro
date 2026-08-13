@@ -3,10 +3,11 @@ interface Props {
   src: string;
   caption: string;
   num: string; // "01", "02" ... — shown as FIG. 01
+  tone?: 'paper' | 'marine'; // frame color — 'paper' (default, earth/lime tone) or 'marine' (desaturated ocean tone)
 }
-const { src, caption, num } = Astro.props;
+const { src, caption, num, tone = 'paper' } = Astro.props;
 ---
-<div class="figure-card">
+<div class={`figure-card tone-${tone}`}>
   <img src={src} alt={caption} loading="lazy" />
   <div class="figure-caption"><b>FIG. {num}</b> — {caption}</div>
 </div>
