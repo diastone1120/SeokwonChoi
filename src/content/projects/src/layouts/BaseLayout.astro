@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+}
+const { title = 'Seokwon Choi — Sustainable Material Systems & Digital Fabrication' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+</head>
+<body>
+  <header class="titlebar">
+    <a class="mark" href="/">Seokwon Choi</a>
+    <nav>
+      <a href="/#work">Work</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <slot />
+
+  <footer id="contact">
+    <span>© SHEET 00 — issued for review</span>
+    <span><a href="mailto:csw951120@gmail.com">csw951120@gmail.com</a> · <a href="#">CV ↗</a></span>
+  </footer>
+</body>
+</html>
