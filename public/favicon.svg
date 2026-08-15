@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#1E1B16"/>
+  <path d="M2 2 L2 9 M2 2 L9 2" stroke="#B5642F" stroke-width="1.4" fill="none"/>
+  <path d="M30 30 L30 23 M30 30 L23 30" stroke="#B5642F" stroke-width="1.4" fill="none"/>
+  <text x="16" y="21" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="500" fill="#EDE7DA" text-anchor="middle">SC</text>
+</svg>

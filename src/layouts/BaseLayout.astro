@@ -1,10 +1,20 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title?: string;
+  description?: string;
+  image?: string; // public/ 기준 상대 경로, 예: "/images/01-lattice-photo.jpg"
 }
-const { title = 'Seokwon Choi — Sustainable Material Systems & Digital Fabrication' } = Astro.props;
+const {
+  title = 'Seokwon Choi — Sustainable Material Systems & Digital Fabrication',
+  description = 'Portfolio of Seokwon Choi — sustainable, low-carbon material research and robotic digital fabrication, spanning bio-based earth composites, algae bioplastics, and shape-memory polymers.',
+  image = '/images/01-lattice-photo.jpg',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
 ---
 <!DOCTYPE html>
 <html lang="ko">
@@ -12,6 +22,22 @@ const { title = 'Seokwon Choi — Sustainable Material Systems & Digital Fabrica
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  <ClientRouter />
 </head>
 <body>
   <header class="titlebar">
@@ -29,7 +55,7 @@ const { title = 'Seokwon Choi — Sustainable Material Systems & Digital Fabrica
 
   <footer id="contact">
     <span>© 2026 Seokwon Choi — All rights reserved</span>
-    <span><a href="mailto:csw951120@gmail.com">csw951120@gmail.com</a> · <a href="#">CV ↗</a></span>
+    <span><a href="mailto:csw951120@gmail.com">csw951120@gmail.com</a> · <a href="https://www.linkedin.com/in/seokwon-choi-7b2a24289" target="_blank" rel="noopener">LinkedIn ↗</a></span>
   </footer>
 </body>
 </html>

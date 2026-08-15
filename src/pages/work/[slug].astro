@@ -5,21 +5,43 @@ import { CATEGORY_LABELS } from '../../lib/tags';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
-  return projects.map((project) => ({
-    params: { slug: project.id },
-    props: { project },
-  }));
+
+  // group by category, sorted by sheet, so prev/next stays within the same section
+  const byCategory: Record<string, CollectionEntry<'projects'>[]> = {};
+  projects.forEach((p) => {
+    (byCategory[p.data.category] ??= []).push(p);
+  });
+  Object.values(byCategory).forEach((arr) =>
+    arr.sort((a, b) => a.data.sheet.localeCompare(b.data.sheet))
+  );
+
+  return projects.map((project) => {
+    const siblings = byCategory[project.data.category];
+    const idx = siblings.findIndex((p) => p.id === project.id);
+    const prev = idx > 0 ? siblings[idx - 1] : null;
+    const next = idx < siblings.length - 1 ? siblings[idx + 1] : null;
+    return {
+      params: { slug: project.id },
+      props: { project, prev, next },
+    };
+  });
 }
 
 interface Props {
   project: CollectionEntry<'projects'>;
+  prev: CollectionEntry<'projects'> | null;
+  next: CollectionEntry<'projects'> | null;
 }
-const { project } = Astro.props;
+const { project, prev, next } = Astro.props;
 const { Content } = await render(project);
 const categoryLabel = CATEGORY_LABELS[project.data.category];
 const categorySlug = project.data.category;
 ---
-<BaseLayout title={`${project.data.title} — Seokwon Choi`}>
+<BaseLayout
+  title={`${project.data.title} — Seokwon Choi`}
+  description={project.data.summary}
+  image={project.data.image}
+>
   <article class="project-detail">
     <div class="wrap">
       <a class="back-link" href="/#work">&larr; Back to work</a>
@@ -37,6 +59,21 @@ const categorySlug = project.data.category;
       <div class="project-body">
         <Content />
       </div>
+
+      <nav class="project-pager">
+        {prev ? (
+          <a class="pager-link pager-prev" href={`/work/${prev.id}/`}>
+            <span class="pager-label">&larr; {prev.data.sheet}</span>
+            <span class="pager-title">{prev.data.title}</span>
+          </a>
+        ) : <span />}
+        {next ? (
+          <a class="pager-link pager-next" href={`/work/${next.id}/`}>
+            <span class="pager-label">{next.data.sheet} &rarr;</span>
+            <span class="pager-title">{next.data.title}</span>
+          </a>
+        ) : <span />}
+      </nav>
     </div>
   </article>
 </BaseLayout>
