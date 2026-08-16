@@ -7,6 +7,8 @@ category: "research"
 image: "/images/04-material-grid.jpg"
 credit: "Comparative material experiments · 2018–2024"
 ---
+import FigureCard from '../../components/FigureCard.astro';
+import PhotoBlock from '../../components/PhotoBlock.astro';
 
 A materials-first thread running alongside the larger projects — testing
 individual material systems before they're combined into full-scale prototypes.
@@ -16,11 +18,16 @@ Click each item for more detail.
 <summary>Earth <span class="spec-credit">ISAIA 2024 · Kyoto</span></summary>
 <div class="spec-body">
 
-Lime-earth mixtures tested across varying earth type, lime ratio, and fiber
-reinforcement, evaluated for crack resistance and moisture behavior over multiple
-curing periods. Explored first through the Gwangju Folly 5 workshop, then
-developed further into the Master's thesis presented at the 14th ISAIA 2024
-Conference in Kyoto.
+Lime-earth block mixtures were tested with natural fibers (rice husk, kenaf,
+coconut fiber, wheat straw, agar, and others) across varying earth-lime-water
+ratios, evaluated for crack resistance, surface texture, and color stability over
+a 7-day cure. Blocks were compression-tested and cast into a seashell-lime bench,
+built with an international team at Naturalwangju Folly 5. Explored first through
+that workshop, then developed further into the Master's thesis presented at the
+14th ISAIA 2024 Conference in Kyoto.
+
+<PhotoBlock src="/images/earth-bench.jpg" caption="Fiber samples, block casting, compression testing, and the finished seashell-lime bench at Folly 5" />
+<FigureCard src="/images/earth-lattice.jpg" num="01" caption="Lime-earth mixture and natural-fiber crack-reduction test results" />
 
 </div>
 </details>
@@ -29,11 +36,15 @@ Conference in Kyoto.
 <summary>Algae (seaweed) <span class="spec-credit">AIK 2023 · Jeongseon</span></summary>
 <div class="spec-body">
 
-Seaweed-waste-derived bioplastic compounds (blended with PBAT/PLA) tested for FGF
-printability — comparing blend ratios and print temperatures for stacking
-stability, supply consistency, and shrinkage. Presented at the Autumn Conference
-of AIK, 2023, Jeongseon, as "A Study on the Architectural Prototyping of Seaweed
-Plastic Compound by FGF."
+Seaweed-waste-derived bioplastic (blended with PBAT and PLA compounds — BG1000,
+850D, NK100, 3100HP) was tested across more than a dozen mixing ratios for FGF
+printability, evaluated against three recurring failure modes: inability to
+stack, inconsistent material supply, and shrinking. Print temperature was tuned
+per blend between roughly 150–195°C to find a stable, printable compound.
+Presented at the Autumn Conference of AIK, 2023, Jeongseon, as "A Study on the
+Architectural Prototyping of Seaweed Plastic Compound by FGF."
+
+<FigureCard src="/images/algae-blending.jpg" num="02" caption="Bioplastic blending process and print-result comparison across material ratios" />
 
 </div>
 </details>
@@ -42,11 +53,15 @@ Plastic Compound by FGF."
 <summary>Shape-memory polymer (SMP) <span class="spec-credit">AIK 2018 · CAADRIA 2020</span></summary>
 <div class="spec-body">
 
-3D-printed SMP prototypes studied for shape-recovery behavior across varying
-infill densities and lattice patterns, including hinge-actuator forms that
-unfold when heated. Presented at the Autumn Conference of AIK, 2018, Pyeongchang,
+3D-printed SMP prototypes — lattice, blossom, and swirl disc forms — were
+developed into hinge-actuator models that fold under an applied load and restore
+their shape when heated to 55°C. Infill wall thickness was tested from 2mm to
+9mm to study its effect on shape-recovery behavior, alongside spiral and radial
+actuator variants. Presented at the Autumn Conference of AIK, 2018, Pyeongchang,
 and at CAADRIA 2020, Bangkok, as "Digital Design and Additive Manufacturing of
 SMP Prototypes."
+
+<FigureCard src="/images/smp-diagrams.jpg" num="03" caption="SMP disc forms, hinge-actuator models, and the heat-triggered shape-recovery mechanism" />
 
 </div>
 </details>

@@ -7,6 +7,8 @@ category: "research"
 image: "/images/03-fabrication-strip.jpg"
 credit: "Workshop series, Seoul · 2018–2023"
 ---
+import FigureCard from '../../components/FigureCard.astro';
+import PhotoBlock from '../../components/PhotoBlock.astro';
 
 A running series of shorter fabrication studies, each testing a different material
 or tooling constraint rather than a single continuous project. Click each item for
@@ -16,13 +18,18 @@ more detail.
 <summary>Column <span class="spec-credit">AIK 2023 · Jeongseon</span></summary>
 <div class="spec-body">
 
-Robot-arm extrusion tests exploring the print head's size limitations and
-suitable print geometry, using a biodegradable formwork printed from seaweed-waste
-bioplastic (FGF). The formwork was printed in three plastic-combination units of
-300mm, under the machine's printing limit, then used to cast UHPC — producing a
-900mm column referencing a traditional wooden pillar. Once cast, the printed
-formwork itself biodegrades back into the soil. With Yousub Bang and Prof. Jungwon
+The print head's size limitation was tested against a 600mm origin model, capped
+by a 300mm-per-print robot reach — so the column was split into four 150mm data
+units suitable for printing at once. A biodegradable FGF-type formwork, printed
+from seaweed-waste bioplastic, was used to cast the final piece: any digitally
+designed shape can be quickly produced this way, and the formwork itself
+biodegrades back into the soil once used. The final column, referencing a
+traditional wooden pillar, stands 900mm tall. With Yousub Bang and Prof. Jungwon
 Yoon.
+
+<FigureCard src="/images/col-diagram.jpg" num="01" caption="Robot arm size limitation and 150mm data segmentation" />
+<PhotoBlock src="/images/col-photos.jpg" caption="Formwork print, robot printing, finished vessel, on-site testing" />
+<PhotoBlock src="/images/col-hardening.jpg" caption="Assembly of three printed parts, and the finished UHPC column" />
 
 </div>
 </details>
@@ -31,10 +38,14 @@ Yoon.
 <summary>Shellfoam <span class="spec-credit">Workshop · 2023, Seoul</span></summary>
 <div class="spec-body">
 
-A robot-arm knife-cutting workshop exploring shellfoam as a lightweight, carvable
-formwork material — testing how far a subtractive robotic process can shape a
-foam block before it's used as formwork or finish surface. With Prof. Junhee Cho
-and UOS students.
+Conducted under Prof. Junhee Cho, this workshop develops and applies new robot-arm
+end-tips. A customized knife attached to the robot arm carves shellfoam — a
+material that cuts cleanly under a blade — into parametric wave-like surfaces. The
+knife's path, and the resulting piece, can be predicted and designed in advance
+through Grasshopper.
+
+<PhotoBlock src="/images/shellfoam-carved.jpg" caption="Carved shellfoam surface, and the knife mid-cut" />
+<PhotoBlock src="/images/shellfoam-robot.jpg" caption="ABB robot system fitted with the custom knife end-tip" />
 
 </div>
 </details>
@@ -43,10 +54,15 @@ and UOS students.
 <summary>Air <span class="spec-credit">Workshop · 2020, Seoul</span></summary>
 <div class="spec-body">
 
-A pneumatic, air-expansion fabrication workshop testing inflatable vinyl forms as
-a lightweight alternative to rigid formwork — expanding sealed pockets under
-controlled air pressure to generate form. With Prof. Jie-Eun Hwang and UOS
-students.
+Under Prof. Jie-Eun Hwang, this workshop studies air-expansion structures. A path
+is drawn using a heated pharynx end-tip, and two layers of plastic vinyl are
+melted together along that path to form sealed air pockets — the same principle
+used to manufacture plastic bags, here repurposed to generate parametric
+inflatable form. The final piece uses six vinyl layers to create five distinct air
+chambers, with different-colored vinyls producing varied color and shape.
+
+<PhotoBlock src="/images/air-hero.jpg" caption="Six-layer air pocket" />
+<PhotoBlock src="/images/air-strip.jpg" caption="End-tip iron, mid-forming, and colored vinyl layers" />
 
 </div>
 </details>
@@ -55,9 +71,14 @@ students.
 <summary>Chair <span class="spec-credit">Lab research · 2023, Seoul</span></summary>
 <div class="spec-body">
 
-A lab-based furniture study applying the group's ribbon-extrusion fabrication
-method at product scale, testing continuous-strip forming for seating. With
-Yousub Bang.
+Inspired by Frank Gehry's ribbon-chair designs, this study tests bioplastic
+combinations and colors for the FGF process at product scale. Built using the
+planar 3D-printing method, the chair is assembled from two separately printed
+parts. Six plastic combinations were tried in total — mainly PLA and PBAT — using
+the seat itself as a way to evaluate each blend's printability.
+
+<PhotoBlock src="/images/chair-hero.jpg" caption="Sitting on the assembled chair" />
+<PhotoBlock src="/images/chair-strip.jpg" caption="Inner and outer parts mid-print" />
 
 </div>
 </details>
@@ -66,10 +87,15 @@ Yousub Bang.
 <summary>Concrete <span class="spec-credit">Workshop · 2018, Seoul</span></summary>
 <div class="spec-body">
 
-An early UHPC (ultra-high-performance concrete) workshop exploring transparent,
-thin-shell concrete casting — an entry point into the formwork and material
-logic that later fed into the Column study. With Prof. Jie-Eun Hwang and UOS
-students.
+A school workshop producing transparent, permeable concrete by combining acrylic
+sticks with UHPC. Blocks were designed with concrete experts to maintain
+structural strength while maximizing UHPC's thin covering-thickness advantage —
+packing in as many acrylic sticks as the pattern would allow, letting light pass
+through the cast block.
+
+<PhotoBlock src="/images/concrete-main.jpg" caption="Finished permeable-concrete block" />
+<PhotoBlock src="/images/concrete-detail.jpg" caption="Detail views showing light passing through the acrylic-stick pattern" />
+<PhotoBlock src="/images/concrete-scale.jpg" caption="Installed at larger scale, and the acrylic-stick / UHPC construction diagram" />
 
 </div>
 </details>
