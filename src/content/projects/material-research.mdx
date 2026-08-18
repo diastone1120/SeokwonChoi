@@ -7,27 +7,67 @@ category: "research"
 image: "/images/04-material-grid.jpg"
 credit: "Comparative material experiments · 2018–2024"
 ---
-import FigureCard from '../../components/FigureCard.astro';
-import PhotoBlock from '../../components/PhotoBlock.astro';
 
 A materials-first thread running alongside the larger projects — testing
 individual material systems before they're combined into full-scale prototypes.
-Click each item for more detail.
+Click each item for more detail; click any photo to enlarge.
 
 <details class="spec-item">
 <summary>Earth <span class="spec-credit">ISAIA 2024 · Kyoto</span></summary>
 <div class="spec-body">
 
-Lime-earth block mixtures were tested with natural fibers (rice husk, kenaf,
-coconut fiber, wheat straw, agar, and others) across varying earth-lime-water
-ratios, evaluated for crack resistance, surface texture, and color stability over
-a 7-day cure. Blocks were compression-tested and cast into a seashell-lime bench,
-built with an international team at Naturalwangju Folly 5. Explored first through
-that workshop, then developed further into the Master's thesis presented at the
-14th ISAIA 2024 Conference in Kyoto.
+<div class="subtabs">
+<button class="subtab-btn active" data-tab="brick">1-1 Brick</button>
+<button class="subtab-btn" data-tab="bench">1-2 Bench</button>
+<button class="subtab-btn" data-tab="dye">1-3 Dye</button>
+<button class="subtab-btn" data-tab="test">Material Testing</button>
+</div>
 
-<PhotoBlock src="/images/earth-bench.jpg" caption="Fiber samples, block casting, compression testing, and the finished seashell-lime bench at Folly 5" />
-<FigureCard src="/images/earth-lattice.jpg" num="01" caption="Lime-earth mixture and natural-fiber crack-reduction test results" />
+<div class="subtab-panel active" data-panel="brick">
+<p>Lime-earth-fiber mixtures cast into 4×4 block molds and compression-tested for
+strength and crack resistance.</p>
+<div class="gallery-grid">
+<img src="/images/earth-brick-1.jpg" data-full="/images/earth-brick-1.jpg" alt="Fiber and mixture components" loading="lazy" />
+<img src="/images/earth-brick-2.jpg" data-full="/images/earth-brick-2.jpg" alt="Block casting mold" loading="lazy" />
+<img src="/images/earth-brick-3.jpg" data-full="/images/earth-brick-3.jpg" alt="Compression testing" loading="lazy" />
+<img src="/images/earth-brick-4.jpg" data-full="/images/earth-brick-4.jpg" alt="Cross-section of cured blocks" loading="lazy" />
+</div>
+</div>
+
+<div class="subtab-panel" data-panel="bench">
+<p>A seashell-lime bench cast and installed with an international workshop team
+at Naturalwangju Folly 5.</p>
+<div class="gallery-grid">
+<img src="/images/earth-bench-1.jpg" data-full="/images/earth-bench-1.jpg" alt="Bench casting" loading="lazy" />
+<img src="/images/earth-bench-2.jpg" data-full="/images/earth-bench-2.jpg" alt="Bench installation" loading="lazy" />
+<img src="/images/earth-bench-3.jpg" data-full="/images/earth-bench-3.jpg" alt="Finished bench with workshop team" loading="lazy" />
+</div>
+</div>
+
+<div class="subtab-panel" data-panel="dye">
+<p>Natural pigment tests on the earth-lime mixture surface, exploring color
+variation from different additives.</p>
+<div class="gallery-grid">
+<img src="/images/earth-dye-1.jpg" data-full="/images/earth-dye-1.jpg" alt="Pigment test sample 1" loading="lazy" />
+<img src="/images/earth-dye-2.jpg" data-full="/images/earth-dye-2.jpg" alt="Pigment test sample 2" loading="lazy" />
+</div>
+</div>
+
+<div class="subtab-panel" data-panel="test">
+<p>Crack-reduction and natural-fiber test grids across earth-lime-water ratios
+and fiber types, evaluated over a 7-day cure for crack size, texture, and
+feasibility.</p>
+<div class="gallery-grid">
+<img src="/images/earth-test-0.jpg" data-full="/images/earth-test-0.jpg" alt="Lime and loam powder, 4x4 mold frame" loading="lazy" />
+<img src="/images/earth-test-1.jpg" data-full="/images/earth-test-1.jpg" alt="Mixture ratio and crack-type test grid" loading="lazy" />
+<img src="/images/earth-test-2.jpg" data-full="/images/earth-test-2.jpg" alt="Crack-reduction fiber test grid" loading="lazy" />
+<img src="/images/earth-test-3.jpg" data-full="/images/earth-test-3.jpg" alt="Fiber sample close-ups" loading="lazy" />
+<img src="/images/earth-test-4.jpg" data-full="/images/earth-test-4.jpg" alt="Coconut fiber vs kenaf evaluation" loading="lazy" />
+<img src="/images/earth-test-5.jpg" data-full="/images/earth-test-5.jpg" alt="Bowtie-shaped tile sample 1" loading="lazy" />
+<img src="/images/earth-test-6.jpg" data-full="/images/earth-test-6.jpg" alt="Bowtie-shaped tile sample 2" loading="lazy" />
+<img src="/images/earth-test-7.jpg" data-full="/images/earth-test-7.jpg" alt="Bowtie-shaped tile sample 3" loading="lazy" />
+</div>
+</div>
 
 </div>
 </details>
@@ -39,12 +79,14 @@ that workshop, then developed further into the Master's thesis presented at the
 Seaweed-waste-derived bioplastic (blended with PBAT and PLA compounds — BG1000,
 850D, NK100, 3100HP) was tested across more than a dozen mixing ratios for FGF
 printability, evaluated against three recurring failure modes: inability to
-stack, inconsistent material supply, and shrinking. Print temperature was tuned
-per blend between roughly 150–195°C to find a stable, printable compound.
-Presented at the Autumn Conference of AIK, 2023, Jeongseon, as "A Study on the
-Architectural Prototyping of Seaweed Plastic Compound by FGF."
+stack, inconsistent material supply, and shrinking. Presented at the Autumn
+Conference of AIK, 2023, Jeongseon, as "A Study on the Architectural Prototyping
+of Seaweed Plastic Compound by FGF."
 
-<FigureCard src="/images/algae-blending.jpg" num="02" caption="Bioplastic blending process and print-result comparison across material ratios" />
+<div class="gallery-grid">
+<img src="/images/algae-1.jpg" data-full="/images/algae-1.jpg" alt="Blending process diagram" loading="lazy" />
+<img src="/images/algae-2.jpg" data-full="/images/algae-2.jpg" alt="Print result comparison" loading="lazy" />
+</div>
 
 </div>
 </details>
@@ -55,13 +97,15 @@ Architectural Prototyping of Seaweed Plastic Compound by FGF."
 
 3D-printed SMP prototypes — lattice, blossom, and swirl disc forms — were
 developed into hinge-actuator models that fold under an applied load and restore
-their shape when heated to 55°C. Infill wall thickness was tested from 2mm to
-9mm to study its effect on shape-recovery behavior, alongside spiral and radial
-actuator variants. Presented at the Autumn Conference of AIK, 2018, Pyeongchang,
-and at CAADRIA 2020, Bangkok, as "Digital Design and Additive Manufacturing of
-SMP Prototypes."
+their shape when heated to 55°C. Presented at the Autumn Conference of AIK,
+2018, Pyeongchang, and at CAADRIA 2020, Bangkok, as "Digital Design and Additive
+Manufacturing of SMP Prototypes."
 
-<FigureCard src="/images/smp-diagrams.jpg" num="03" caption="SMP disc forms, hinge-actuator models, and the heat-triggered shape-recovery mechanism" />
+<div class="gallery-grid">
+<img src="/images/smp-1.jpg" data-full="/images/smp-1.jpg" alt="SMP disc forms and actuator models" loading="lazy" />
+<img src="/images/smp-2.jpg" data-full="/images/smp-2.jpg" alt="Hinge mechanism diagram" loading="lazy" />
+<img src="/images/smp-3.jpg" data-full="/images/smp-3.jpg" alt="Wall thickness test prints" loading="lazy" />
+</div>
 
 </div>
 </details>

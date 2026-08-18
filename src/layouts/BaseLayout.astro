@@ -53,6 +53,42 @@ const ogImageURL = new URL(image, Astro.site);
 
   <slot />
 
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">CLOSE &#10005;</span>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <script>
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+
+      const img = target.closest('.gallery-grid img') as HTMLImageElement | null;
+      if (img) {
+        const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+        const lightbox = document.getElementById('lightbox') as HTMLElement;
+        lightboxImg.src = img.dataset.full || img.src;
+        lightbox.classList.add('open');
+        return;
+      }
+
+      const tabBtn = target.closest('.subtab-btn') as HTMLElement | null;
+      if (tabBtn) {
+        const group = tabBtn.closest('.subtabs') as HTMLElement;
+        group.querySelectorAll('.subtab-btn').forEach((b) => b.classList.remove('active'));
+        tabBtn.classList.add('active');
+        const body = tabBtn.closest('.spec-body') as HTMLElement;
+        const tab = tabBtn.dataset.tab;
+        body.querySelectorAll('.subtab-panel').forEach((p) => p.classList.remove('active'));
+        body.querySelector(`[data-panel="${tab}"]`)?.classList.add('active');
+        return;
+      }
+
+      if (target.closest('#lightbox')) {
+        document.getElementById('lightbox')?.classList.remove('open');
+      }
+    });
+  </script>
+
   <footer id="contact">
     <span>© 2026 Seokwon Choi — All rights reserved</span>
     <span><a href="mailto:csw951120@gmail.com">csw951120@gmail.com</a> · <a href="https://www.linkedin.com/in/seokwon-choi-7b2a24289" target="_blank" rel="noopener">LinkedIn ↗</a></span>
