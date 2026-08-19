@@ -7,6 +7,7 @@ const projects = defineCollection({
     sheet: z.string(),        // "01", "02" ... — drawing-sheet index shown on the card
     title: z.string(),
     summary: z.string(),      // short card description (homepage grid)
+    year: z.string(),         // "2024" or a range like "2018–2024"
     tags: z.array(z.string()),
     category: z.enum(['research', 'design', 'field']),
     image: z.string().optional(),  // 예: "/images/01-lattice-photo.jpg"

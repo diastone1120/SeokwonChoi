@@ -36,7 +36,7 @@ const sections = [
             {project.data.image && (
               <div class="sheet-bg"><img src={project.data.image} alt="" /></div>
             )}
-            <div class="idx">{project.data.sheet}</div>
+            <div class="idx">{project.data.sheet} <span class="card-year">{project.data.year}</span></div>
             <h3>{project.data.title}</h3>
             <p>{project.data.summary}</p>
             <div class="tags">

@@ -53,6 +53,14 @@ const publications = [
   },
 ].sort((a, b) => b.year.localeCompare(a.year));
 
+const awards = [
+  {
+    year: '2019',
+    name: "2nd Prize, Graduates' Association",
+    context: 'Shifted Boundary — 2019-1 Architectural Design VIII, Studio A',
+  },
+];
+
 const conferences = [
   { year: '2024', name: '14th ISAIA 2024 Conference', place: 'Kyoto, Japan' },
   { year: '2024', name: 'Clinic of Care in Indonesia: Adaptive Reuse', place: 'Yogyakarta, Indonesia · Holcim Foundation' },
@@ -87,6 +95,19 @@ const conferences = [
             <div class="tags">
               {pub.tags.map((t) => <span>{t}</span>)}
             </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="section-label" style="padding-left:0; margin-top:64px;">Awards</div>
+    <div class="pub-list">
+      {awards.map((a) => (
+        <div class="pub-item pub-item-compact">
+          <div class="pub-year">{a.year}</div>
+          <div class="pub-main">
+            <div class="pub-title" style="font-size:16px;">{a.name}</div>
+            <div class="pub-venue">{a.context}</div>
           </div>
         </div>
       ))}
