@@ -19,7 +19,7 @@ const publications = [
   {
     year: '2024',
     title: 'Architectural Production Using 3D Printing with Algae-Bioplastic Compounds',
-    venue: 'JAIK',
+    venue: 'Journal of the Architectural Institute of Korea, 40(9), 91–102',
     role: '1st author',
     tags: ['3DP', 'Seaweed', 'Bioplastic', 'Robot arm'],
   },
@@ -39,8 +39,8 @@ const publications = [
   },
   {
     year: '2020',
-    title: 'Digital Design and Additive Manufacturing of SMP Prototypes',
-    venue: 'CAADRIA 2020, Bangkok',
+    title: 'Thermo-Shading: Digital Design and Additive Manufacturing of SMP Prototypes',
+    venue: 'CAADRIA 2020, Bangkok, pp. 35–44',
     role: '2nd author',
     tags: ['3DP', 'FGF', 'Biodegradable'],
   },
@@ -55,9 +55,24 @@ const publications = [
 
 const awards = [
   {
+    year: '2025',
+    name: 'AIK Paper Award (대한건축학회상 논문상)',
+    context: 'Architectural Institute of Korea — for "Architectural Production Using 3D Printing with Algae-Bioplastic Compounds"',
+  },
+  {
+    year: '2023',
+    name: 'Best Paper Presentation Award',
+    context: 'AIK Fall Conference, Jeongseon — for "A Study on the Architectural Prototyping of Seaweed Plastic Compound by FGF"',
+  },
+  {
     year: '2019',
     name: "2nd Prize, Graduates' Association",
     context: 'Shifted Boundary — 2019-1 Architectural Design VIII, Studio A',
+  },
+  {
+    year: '2018',
+    name: 'Best Paper Presentation Award',
+    context: 'AIK Fall Conference, Pyeongchang — for "A Study of the Influence of 3D Printing Infill Densities on SMP Shape Recovery Behaviors"',
   },
 ];
 
@@ -68,11 +83,17 @@ const conferences = [
   { year: '2023', name: 'Gwangju Folly 5', place: 'Gwangju, Korea' },
   { year: '2023', name: 'Autumn Conference of AIK 2023', place: 'Jeongseon, Korea' },
   { year: '2023', name: 'Nano-Degree Workshop — Robot-Arm Shellfoam Cutting', place: 'Seoul, Korea' },
-  { year: '2023', name: 'Joint Workshop with Syracuse University', place: 'Seoul, Korea' },
+  { year: '2023', name: 'Joint Workshop with Syracuse University (TA)', place: 'Seoul, Korea' },
   { year: '2020', name: 'Digital Jam Workshop — Air-Expansion Fabrication', place: 'Seoul, Korea' },
   { year: '2019', name: 'ACAU — Collective City', place: 'Ho Chi Minh City, Vietnam' },
   { year: '2018', name: 'Sewoon Builder School — Transparent UHPC Furniture', place: 'Seoul, Korea' },
   { year: '2018', name: 'Autumn Conference of AIK 2018', place: 'Pyeongchang, Korea' },
+  { year: '2017', name: 'Korea–China Seoul Workshop', place: 'Seoul, Korea' },
+].sort((a, b) => b.year.localeCompare(a.year));
+
+const exhibitions = [
+  { year: '2019', name: '"Collective City" — ACAU Workshop Exhibition', place: 'Seoul, Korea' },
+  { year: '2019', name: '33rd College of Urban Science Joint Exhibition — Graduation Work', place: 'Seoul, Korea' },
 ].sort((a, b) => b.year.localeCompare(a.year));
 ---
 <BaseLayout title="Publications — Seokwon Choi" description="Papers, theses, and conference presentations by Seokwon Choi — computational design and digital fabrication research.">
@@ -121,6 +142,19 @@ const conferences = [
           <div class="pub-main">
             <div class="pub-title" style="font-size:16px;">{c.name}</div>
             <div class="pub-venue">{c.place}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="section-label" style="padding-left:0; margin-top:64px;">Exhibitions</div>
+    <div class="pub-list">
+      {exhibitions.map((e) => (
+        <div class="pub-item pub-item-compact">
+          <div class="pub-year">{e.year}</div>
+          <div class="pub-main">
+            <div class="pub-title" style="font-size:16px;">{e.name}</div>
+            <div class="pub-venue">{e.place}</div>
           </div>
         </div>
       ))}
