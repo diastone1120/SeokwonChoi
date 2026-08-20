@@ -192,6 +192,7 @@ footer a{text-decoration:underline; text-underline-offset:3px; color:var(--bone)
   border:0.5px solid var(--grid-line-strong);
 }
 .detail-img img{width:100%; height:auto; display:block;}
+.detail-img.small{max-width:200px;}
 .back-link{
   font-family:'IBM Plex Mono', monospace;
   font-size:12px; text-transform:uppercase; letter-spacing:0.06em;

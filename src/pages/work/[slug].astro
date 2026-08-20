@@ -54,7 +54,9 @@ const categorySlug = project.data.category;
         {project.data.tags.map((tag) => <span>{tag}</span>)}
       </div>
       {project.data.image && (
-        <div class="detail-img"><img src={project.data.image} alt={project.data.title} /></div>
+        <div class={`detail-img ${project.data.heroSize === 'small' ? 'small' : ''}`}>
+          <img src={project.data.image} alt={project.data.title} />
+        </div>
       )}
       <div class="project-body">
         <Content />

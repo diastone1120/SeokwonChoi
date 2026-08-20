@@ -11,6 +11,7 @@ const projects = defineCollection({
     tags: z.array(z.string()),
     category: z.enum(['research', 'design', 'field']),
     image: z.string().optional(),  // 예: "/images/01-lattice-photo.jpg"
+    heroSize: z.enum(['default', 'small']).optional(), // 'small'이면 상세페이지 hero를 작게 표시
     credit: z.string().optional(), // venue / co-authors / advisor line
   }),
 });
